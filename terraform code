@@ -15,6 +15,7 @@ resource "aws_security_group" "allow_tls" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  
   ingress {
     description = "HTTPD Port"
     from_port   = 80
@@ -22,6 +23,7 @@ resource "aws_security_group" "allow_tls" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   } 
+  
   ingress {
     description = "Localhost"
     from_port   = 8080
@@ -29,15 +31,18 @@ resource "aws_security_group" "allow_tls" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  
   tags = {
     Name = "allow_tls"
   }
+  
 }
 #creating key variable 
 variable "enter_ur_key_name" {
